@@ -1,4 +1,4 @@
-# Annotator Instructions for Dataset Quality Assessment
+# Instructions to Annotators for Dataset Quality Assessment
 
 ## 1. Purpose of the Annotation Task
 
