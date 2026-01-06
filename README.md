@@ -6,7 +6,7 @@ The objective of this annotation task is to evaluate the quality of conversation
 
 - Conversational turns
 - Knowledge graphs derived from conversations
-- Question Answer (QA) pairs generated from conversational history
+- Question Answer (QA) pairs generated from new conversational turns or speaker-specific knowledge graphs
 
 The evaluation focuses on quality assessment, not preference judgment, model comparison, or subjective stylistic taste.
 
@@ -38,18 +38,19 @@ Depending on the evaluation type, annotators were shown one or more of the follo
 - A set of subject–relation–object triples derived from MSC dataset conversations.
 - Triples were grouped by topic and speaker.
 
+
 ### QA Pairs (TGC only)
 
 - A question and its corresponding answer.
-- Questions are grounded in either short-term conversational turns or long-term speaker knowledge graphs.
+- QA pairs are memory-grounded and generated from speaker-specific knowledge graphs or newly generated conversational turns.
+- Questions involve speaker1 asking about its prior events or preferences, while speaker2 provides brief factual responses.
+- Questions are grounded in either short-term conversational turns or long-term speaker knowledge graphs of speaker1.
 
 Annotators were explicitly informed that:
 
 - MSC does not contain knowledge graphs or QA pairs.
 - Knowledge graph and QA evaluations apply only to TGC.
-
-
-
+  
 ## 4. Scoring Scale
 
 All metrics are rated on a continuous 0–100 scale, where:
@@ -188,27 +189,25 @@ Annotators rated QA pairs using the following metrics.
 
 #### Factual Correctness
 
-Measures whether the answer correctly responds to the question based on conversational history or knowledge graphs.
+Measures whether the answer correctly responds to the question based on generated conversational turns or knowledge graphs.
 
 - High (80–100): Answer is fully correct and unambiguous.
 - Medium (50–79): Answer is mostly correct but partially incomplete or imprecise.
 - Low (0–49): Answer is incorrect, unsupported, or misleading.
 
 
-
 #### Relevance
 
-Assesses whether the question is meaningful and grounded in conversational or knowledge context.
+Assesses whether the question is meaningful and grounded in generated conversational turns or knowledge graph context of speaker1.
 
-- High (80–100): Question probes relevant memory or prior information.
-- Medium (50–79): Question is loosely related but not central.
-- Low (0–49): Question is trivial, vague, or unrelated.
+- High (80–100): The question probes relevant memory or prior information specific to speaker1.
+- Medium (50–79): The question is loosely related to speaker1’s context but does not probe central or salient information.
+- Low (0–49): The question is trivial, vague, or unrelated to speaker1’s conversational or knowledge context.
 
 Example
 
-- High: “What dish does speaker1 like to cook?” with a correct answer grounded in conversation.
-- Low: Questions unrelated to any stated facts.
-
+- High: “What dish do I like to cook?” grounded in speaker1’s conversational context with a correct answer from speaker2.
+- Low: Questions unrelated to any facts stated about speaker1.
 
 
 ## 6. Annotation Procedure
